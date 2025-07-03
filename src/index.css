@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Inter Regular";
+  src: url(./fonts/Inter-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter Bold";
+  src: url(./fonts/Inter-Bold.ttf);
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Inter Extra Bold";
+  src: url(./fonts/Inter-ExtraBold.ttf);
+  font-weight: 800;
+  font-style: normal;
+}
+
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter Regular", sans-serif;
+
+  --color-primary-orange: hsl(35, 77%, 62%);
+  --color-primary-red: hsl(5, 85%, 63%);
+
+  --color-secondary-white: hsl(36, 100%, 99%);
+  --color-secondary-gray: hsl(233, 8%, 79%);
+  --color-secondary-darkgray: hsl(236, 13%, 42%);
+  --color-secondary-darkblue: hsl(240, 100%, 5%);
+
+  --text-size-primary: 0.938rem;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  max-width: 1472px;
+  margin: 0 auto;
+  background-color: hsl(36, 100%, 99%);
+  padding: 0 16px;
+}
+.menu-active {
+  animation: fade-in 0.2s ease-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

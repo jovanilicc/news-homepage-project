@@ -3,9 +3,19 @@ import { useState } from "react";
 import menuImg from "../assets/images/icon-menu.svg";
 import closeMenuImg from "../assets/images/icon-menu-close.svg";
 import logoImg from "../assets/images/logo.svg";
+
+const navMenuList = [
+  { title: "Home", path: "/" },
+  { title: "New", path: "/" },
+  { title: "Popular", path: "/" },
+  { title: "Trending", path: "/" },
+  { title: "Categories", path: "/" },
+];
+
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
-
+  // TODO:
+  // FIX MOBILE VIEW NAVBAR NOT CLOSING WHEN NAVIGATING
   return (
     <>
       <header className="py-8 md:py-10 flex justify-between relative">
@@ -41,21 +51,25 @@ export default function Header() {
               </div>
               <nav className="flex flex-col gap-3 text-xl font-semibold [&>a]:[&:hover,&:active]:text-primary-orange [&>a]:transition">
                 {" "}
-                <NavLink to="#">Home</NavLink>
-                <NavLink to="#">New</NavLink>
-                <NavLink to="#">Popular</NavLink>
-                <NavLink to="#">Trending</NavLink>
-                <NavLink to="#">Categories</NavLink>
+                {navMenuList.map((navItem) => (
+                  <NavLink
+                    key={navItem.title}
+                    to={navItem.path}
+                    onClick={() => setShowMenu(false)}
+                  >
+                    {navItem.title}
+                  </NavLink>
+                ))}
               </nav>
             </div>
           </div>
         )}
         <nav className="hidden md:flex gap-10 items-center text-xl font-semibold [&>a]:text-secondary-gray [&>a]:[&:hover,&:active]:text-primary-orange [&>a]:transition">
-          <NavLink to="#">Home</NavLink>
-          <NavLink to="#">New</NavLink>
-          <NavLink to="#">Popular</NavLink>
-          <NavLink to="#">Trending</NavLink>
-          <NavLink to="#">Categories</NavLink>
+          {navMenuList.map((navItem) => (
+            <NavLink key={navItem.title} to={navItem.path}>
+              {navItem.title}
+            </NavLink>
+          ))}
         </nav>
       </header>
     </>
